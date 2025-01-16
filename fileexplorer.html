@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="light dark">
+    <meta name="google" value="notranslate">
+    <title id="title">Index of LocalStorage Content</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        #html-box {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            background: #fff;
+            overflow: auto;
+            resize: both;
+        }
+        #full-screen-html {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #fff;
+            z-index: 1000;
+            overflow: auto;
+        }
+        #full-screen-html .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="header">Index of LocalStorage Content</h1>
+        <div class="controls">
+            <input type="text" id="new-file-name" placeholder="Enter new file/folder name">
+            <button id="create-file-button">Create File</button>
+            <button id="create-folder-button">Create Folder</button>
+        </div>
+    </header>
+
+    <main>
+        <table>
+            <thead>
+                <tr class="header" id="theader">
+                    <th id="nameColumnHeader" tabindex="0" role="button">Name</th>
+                    <th id="sizeColumnHeader" class="detailsColumn" tabindex="0" role="button">Size</th>
+                    <th id="dateColumnHeader" class="detailsColumn" tabindex="0" role="button">Date Modified</th>
+                    <th id="actionsColumnHeader">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- Existing file rows will be added through JavaScript -->
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Modal for viewing and editing content -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">View/Edit LocalStorage Item</h2>
+            <textarea id="file-content" rows="10" cols="50"></textarea><br>
+            <button id="save-button">Save</button>
+            <button id="delete-button">Delete</button>
+            <button id="back-button">Back</button>
+            <button id="rename-button">Rename</button>
+            <button id="view-html-button">Open as HTML</button>
+            <button id="full-screen-html-button">Open as Full-screen HTML</button>
+        </div>
+    </div>
+
+    <div id="html-box"></div>
+    <div id="full-screen-html">
+        <span class="close">&times;</span>
+        <div id="full-screen-html-content"></div>
+    </div>
+</body>
+</html>
